@@ -1,264 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ChaosRX | Official Site</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #050814;
-      --card: #0c1024;
-      --accent: #6b5bff;
-      --accent2: #00e0ff;
-      --text: #f5f7ff;
-      --muted: #9aa0c8;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #151a3a 0, #050814 45%, #02030a 100%);
-      color: var(--text);
-      min-height: 100vh;
-    }
-    .wrapper {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 16px 64px;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-    }
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent2);
-    }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 0.95rem;
-    }
-    nav a:hover {
-      color: var(--accent2);
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-    }
-    .hero-title {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-    .btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.95rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #050814;
-      font-weight: 600;
-    }
-    .btn-secondary {
-      background: transparent;
-      border-color: #262a4a;
-      color: var(--text);
-    }
-    .hero-note {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .hero-card {
-      background: radial-gradient(circle at top, #20254a 0, #0c1024 55%);
-      border-radius: 18px;
-      padding: 18px;
-      border: 1px solid #262a4a;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-    }
-    .hero-card-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .hero-card-main {
-      font-size: 1.05rem;
-      margin-bottom: 12px;
-    }
-    .hero-card-meta {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-    }
-    section p {
-      font-size: 0.98rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-      max-width: 720px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 14px 14px 16px;
-      border: 1px solid #262a4a;
-    }
-    .card-title {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-    .card-text {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    .pill {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #151936;
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-    footer {
-      border-top: 1px solid #151936;
-      padding-top: 18px;
-      font-size: 0.85rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    a.link {
-      color: var(--accent2);
-      text-decoration: none;
-    }
-    a.link:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>ChaosRX</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0f0f0f;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #151515;
+        }
+
+        header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .about-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-container img {
+            width: 300px;
+            border-radius: 12px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            background-color: #6a00ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #151515;
+            margin-top: 40px;
+        }
+
+        footer img {
+            width: 60px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="wrapper">
-    <header>
-      <div class="logo">CHAOSRX</div>
-      <nav>
+
+<header>
+    <img src="chaosrx-logo.png" alt="ChaosRX Logo">
+    <nav>
         <a href="#about">About</a>
+        <a href="#expect">What to Expect</a>
+        <a href="#sponsor">Sponsor</a>
         <a href="#videos">Videos</a>
-        <a href="#schedule">Schedule</a>
         <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    </nav>
+</header>
 
-    <main>
-      <section class="hero">
+<section id="about" class="section">
+    <h2>About ChaosRX</h2>
+    <div class="about-container">
+        <img src="setup-photo.jpg" alt="Setup Photo">
         <div>
-          <h1 class="hero-title">Precision. Chaos. Victory.</h1>
-          <p class="hero-sub">
-            ChaosRX is a Fortnite creator delivering high‑energy gameplay, clean edits, and competitive improvement.
-          </p>
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="https://youtube.com" target="_blank">Watch on YouTube</a>
-            <a class="btn btn-secondary" href="https://discord.com" target="_blank">Join the Discord</a>
-            <a class="btn btn-secondary" href="https://tiktok.com" target="_blank">Follow on TikTok</a>
-          </div>
+            <p>ChaosRX is a creator fully locked in on her YouTube grind. She’s dedicated, consistent, and always pushing to be one of the best small creators rising right now. What makes her different is how deeply she cares about her community — staying connected, listening, and creating content that brings everyone together.</p>
         </div>
-        <div class="hero-card">
-          <div class="hero-card-label">Featured</div>
-          <div class="hero-card-main">
-            Latest ChaosRX upload — competitive Fortnite gameplay, clean edits, and smart rotations.
-          </div>
-          <div class="hero-card-meta">
-            Embed your newest YouTube video here.
-          </div>
-        </div>
-      </section>
+    </div>
+</section>
 
-      <section id="about">
-        <h2>About ChaosRX</h2>
-        <p>
-          ChaosRX is a competitive Fortnite creator focused on fast edits, smart rotations, and clean gameplay.
-        </p>
-      </section>
+<section id="expect" class="section">
+    <h2>What to Expect</h2>
+    <ul>
+        <li>Fast, clean Fortnite edits</li>
+        <li>High‑energy gameplay</li>
+        <li>Smart rotations and competitive improvement</li>
+        <li>Streams whenever something crazy happens</li>
+        <li>Highlights from your best moments</li>
+    </ul>
+</section>
 
-      <section id="videos">
-        <h2>Videos</h2>
-        <p>
-          Use a YouTube channel embed so this section auto‑updates.
-        </p>
-      </section>
+<section id="profile" class="section">
+    <h2>Meet ChaosRX</h2>
+    <img src="face-photo.jpg" alt="Profile Photo" style="width:250px; border-radius:12px;">
+</section>
 
-      <section id="schedule">
-        <h2>Schedule</h2>
-        <p>
-          Monday — Gameplay<br />
-          Wednesday — Tips<br />
-          Friday — Highlights<br />
-          Saturday — Stream 8 PM EST<br />
-          Sunday — Stream 6 PM EST
-        </p>
-      </section>
+<section id="sponsor" class="section">
+    <h2>Sponsored by Rogue Energy</h2>
+    <img src="rogue-energy.png" alt="Rogue Energy" style="width:250px; border-radius:12px; margin-bottom:20px;">
+    <p>Rogue Energy proudly sponsors ChaosRX, supporting her grind with clean focus, zero crash, and the energy she needs to stay locked in every session. This partnership is built on community, consistency, and pushing for greatness — the same values that drive ChaosRX every day.</p>
+</section>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          <a class="link" href="mailto:chaosrxbusiness@gmail.com">chaosrxbusiness@gmail.com</a>
-        </p>
-      </section>
-    </main>
+<section id="videos" class="section">
+    <h2>Latest Videos</h2>
+    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=chaosrxgaming"></iframe>
+</section>
 
-    <footer>
-      © 2026 ChaosRX — All Rights Reserved
-    </footer>
-  </div>
+<section class="section">
+    <h2>Links</h2>
+    <div class="buttons">
+        <a href="https://youtube.com/@chaosrxgaming?si=weTFq07wrEWZe-4Q">YouTube</a>
+        <a href="https://discord.gg/">Discord</a>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Business Email: <strong>your-email-here@gmail.com</strong></p>
+</section>
+
+<footer>
+    <img src="chaosrx-logo.png" alt="ChaosRX Logo">
+    <p>© 2026 ChaosRX</p>
+</footer>
+
 </body>
 </html>
+
