@@ -1,262 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>ChaosRX</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>ChaosRX Gaming</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* GLOBAL */
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000000 100%);
-      color: #f9fafb;
+      background: radial-gradient(circle at top, #020617 0%, #000000 55%, #020617 100%);
+      color: #ffffff;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(24, 24, 27, 0.9));
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .logo-text {
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      color: #a5b4fc;
-    }
-
-    nav a {
-      margin-left: 16px;
-      font-size: 0.9rem;
-      color: #e5e7eb;
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: 0.18s ease;
-    }
-
-    nav a:hover {
-      border-color: rgba(129, 140, 248, 0.7);
-      background: rgba(15, 23, 42, 0.9);
-      color: #c7d2fe;
-    }
-
-    main {
-      flex: 1;
-      padding: 32px 20px 40px;
-      max-width: 960px;
+    .wrapper {
+      max-width: 900px;
       margin: 0 auto;
+      padding: 30px 16px 60px;
     }
 
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    h1, h2 {
+      margin: 0 0 12px;
+    }
+
+    /* SECTION NEON GLOW */
     .section {
-      margin-bottom: 40px;
-      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 32px;
+      padding: 20px;
       border-radius: 18px;
-      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), rgba(15, 23, 42, 0.95));
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.65);
     }
 
-    .section h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 1.3rem;
+    .section::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 18px;
+      pointer-events: none;
+      animation: neonPulse 1.2s infinite alternate;
+    }
+
+    @keyframes neonPulse {
+      0% {
+        box-shadow: 0 0 6px #3b82f6, 0 0 12px #3b82f6;
+      }
+      100% {
+        box-shadow: 0 0 16px #3b82f6, 0 0 32px #3b82f6;
+      }
+    }
+
+    /* HEADER */
+    .logo-title {
+      font-size: 2.2rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #c7d2fe;
     }
 
-    .section p {
-      margin-top: 0;
-      margin-bottom: 16px;
+    .tagline {
       font-size: 0.95rem;
-      color: #e5e7eb;
-      line-height: 1.55;
+      color: #9ca3af;
     }
 
-    .image-wrap {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: #020617;
+    /* ABOUT */
+    .about-text {
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    /* SETUP */
+    .setup-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .setup-list li {
+      margin-bottom: 6px;
+    }
+
+    /* STORY / ROGUE */
+    .story-text {
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* CONTACT */
+    .contact-email {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      margin-top: 8px;
+    }
+
+    /* LATEST VIDEO */
+    .latest-video-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .latest-video-thumb {
+      width: 60%;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 15px auto;
+      box-shadow: 0 0 12px #3b82f6;
+    }
+
+    .watch-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #3b82f6;
+      color: white;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 0 12px #3b82f6;
+    }
+
+    .watch-btn:hover {
+      background: #60a5fa;
+      box-shadow: 0 0 18px #60a5fa;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* CREATOR GOALS */
+    .goals-title {
+      font-size: 1.4rem;
+      font-weight: 700;
       margin-bottom: 16px;
     }
 
-    .image-wrap img {
-      display: block;
-      width: 100%;
-      height: auto;
+    .goal {
+      margin-bottom: 22px;
     }
 
-    .button-row {
-      margin-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .goal-label {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
     }
 
-    .pill-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      border: 1px solid rgba(129, 140, 248, 0.9);
-      color: #e5e7eb;
-      background: linear-gradient(to right, rgba(30, 64, 175, 0.9), rgba(129, 140, 248, 0.9));
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.55);
-      transition: 0.18s ease;
-    }
-
-    .pill-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 40px rgba(79, 70, 229, 0.7);
-    }
-
-    footer {
-      padding: 16px 24px 22px;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      font-size: 0.8rem;
+    .goal-meta {
+      font-size: 0.85rem;
       color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 18px;
+      background: #020617;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 8px #3b82f6;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #3b82f6;
+      width: 0%;
+      animation: pulseFill 1.5s infinite alternate;
+    }
+
+    @keyframes pulseFill {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.6); }
+    }
+
+    /* FOOTER NOTE */
+    .footer-note {
+      font-size: 0.8rem;
+      color: #6b7280;
       text-align: center;
-      background: radial-gradient(circle at bottom, rgba(30, 64, 175, 0.35), #020617 55%);
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="logo-text">CHAOSRX</div>
-      <nav>
-        <a href="#about">About Me</a>
-        <a href="#setup">My Setup</a>
-        <a href="#logo">Logo</a>
-        <a href="#rogue">Rogue Energy</a>
-        <a href="#story">Story</a>
-      </nav>
-    </header>
+  <div class="wrapper">
 
-    <main>
+    <!-- HEADER / LOGO -->
+    <div class="section">
+      <div class="logo-title">CHAOSRX GAMING</div>
+      <div class="tagline">Fast. Energetic. Fortnite creator grinding toward monetization, 5K subs, and 1M views.</div>
+    </div>
 
-      <!-- ABOUT ME -->
-      <section id="about" class="section">
-        <h2>About Me</h2>
+    <!-- ABOUT ME -->
+    <div class="section">
+      <h2>About Me</h2>
+      <p class="about-text">
+        I’m ChaosRX, a Fortnite creator focused on fast‑paced, high‑energy gameplay and clean content.
+        My goal is to build a real creator brand, grow a loyal community, and turn the grind into something
+        that lasts—starting with monetization, then 5,000 subscribers, and finally 1,000,000 total views.
+      </p>
+    </div>
 
-        <div class="image-wrap">
-          <img src="IMG_9630.png" alt="About Me portrait" />
+    <!-- SETUP -->
+    <div class="section">
+      <h2>My Setup</h2>
+      <ul class="setup-list">
+        <li>• Xbox + Fortnite main</li>
+        <li>• Switching from controller to keyboard & mouse</li>
+        <li>• Streaming / recording ready</li>
+        <li>• Clean, fast, creator‑focused layout</li>
+      </ul>
+    </div>
+
+    <!-- STORY / ROGUE -->
+    <div class="section">
+      <h2>My Story</h2>
+      <p class="story-text">
+        ChaosRX is built on movement, momentum, and staying in the fight. I’m not just posting clips—
+        I’m building a creator identity that feels fast, neon, and alive. Every upload, every edit, every
+        thumbnail is part of the journey from small creator to fully monetized, recognized Fortnite brand.
+      </p>
+    </div>
+
+    <!-- CONTACT (EMAIL ONLY) -->
+    <div class="section">
+      <h2>Contact Me</h2>
+      <p class="contact-email">
+        Business / collabs: <a href="mailto:chaosrxgaming@proton.me">chaosrxgaming@proton.me</a>
+      </p>
+      <div class="pill">Email only • No DMs • Serious inquiries</div>
+    </div>
+
+    <!-- LATEST VIDEO (AUTO-UPDATING) -->
+    <div class="section">
+      <div class="center">
+        <div class="latest-video-title">Latest Upload</div>
+      </div>
+
+      <script>
+        async function loadLatestVideo() {
+          try {
+            const rssUrl = "https://www.youtube.com/feeds/videos.xml?channel_id=UCf0t8gkWcX0t5uQmF8zv1xw";
+            const response = await fetch(rssUrl);
+            const text = await response.text();
+
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(text, "text/xml");
+
+            const entry = xml.querySelector("entry");
+            if (!entry) return;
+
+            const title = entry.querySelector("title").textContent;
+            const link = entry.querySelector("link").getAttribute("href");
+            const videoId = link.split("v=")[1];
+            const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+            document.getElementById("latest-thumb").src = thumbnail;
+            document.getElementById("latest-title").innerText = title;
+            document.getElementById("latest-link").href = link;
+          } catch (e) {
+            console.error("Error loading latest video", e);
+          }
+        }
+
+        loadLatestVideo();
+      </script>
+
+      <img id="latest-thumb" class="latest-video-thumb" src="" alt="Latest Video Thumbnail">
+      <div id="latest-title" class="center latest-video-title"></div>
+      <div class="center">
+        <a id="latest-link" class="watch-btn" target="_blank">Watch Now</a>
+      </div>
+    </div>
+
+    <!-- CREATOR GOALS (BOTTOM DASHBOARD) -->
+    <div class="section">
+      <div class="goals-title">ChaosRX Milestones</div>
+
+      <!-- Monetization -->
+      <div class="goal">
+        <div class="goal-label">Monetization</div>
+        <div class="goal-meta">Goal: Unlock YouTube monetization • Status: Complete</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 100%;"></div>
         </div>
+      </div>
 
-        <p>
-          My name is ChaosRX, and this space is where everything I do as a creator comes together. I’ve always loved gaming, creating, and building things that feel unique, personal, and full of energy. Whether I’m streaming, recording clips, designing my brand, or upgrading my setup, I’m always trying to push myself to make something better than it was yesterday. I’m not trying to be perfect — I’m trying to be real, consistent, and always improving. This website is a place where people can see who I am, what I’m building, and what I’m proud of.
-        </p>
-
-        <p>
-          I created ChaosRX because I wanted a name that felt fast, sharp, and full of motion — something that matched the way I play and the way I create. I’m always experimenting with new ideas, new styles, and new ways to make my content stand out. I love clean designs, neon colors, and anything that feels futuristic or cyber‑themed. Everything you see on this site — the photos, the layout, the colors — is part of the world I’m building as a creator. And this is only the beginning.
-        </p>
-
-        <div class="button-row">
-          <a class="pill-button" href="https://youtube.com/@chaosrxgaming?si=cQOHNxORYzcxnZqf" target="_blank">My YouTube</a>
+      <!-- 5,000 Subscribers -->
+      <div class="goal">
+        <div class="goal-label">Reach 5,000 Subscribers</div>
+        <div class="goal-meta">Progress: ~1,000 / 5,000 • 20%</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 20%;"></div>
         </div>
-      </section>
+      </div>
 
-      <!-- MY SETUP -->
-      <section id="setup" class="section">
-        <h2>My Setup</h2>
-
-        <div class="image-wrap">
-          <img src="IMG_9647.jpeg" alt="ChaosRX gaming and streaming setup" />
+      <!-- 1,000,000 Views -->
+      <div class="goal">
+        <div class="goal-label">Hit 1,000,000 Total Views</div>
+        <div class="goal-meta">Progress: 300,000 / 1,000,000 • 30%</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 30%;"></div>
         </div>
+      </div>
+    </div>
 
-        <p>
-          My setup is the heart of everything I create. It’s where I stream, edit, grind, and spend countless hours improving my gameplay and my content. I’ve built it piece by piece, choosing every part to match the vibe I want — bright colors, clean lighting, and a layout that feels comfortable but powerful. The dual screens let me play and manage everything at once, the RGB keyboard keeps the energy alive, and the lighting brings the whole room together with a neon glow that feels like a futuristic gaming studio.
-        </p>
-
-        <p>
-          This setup isn’t just equipment — it’s a space that motivates me. When I sit down here, I feel focused, creative, and ready to make something new. Every upgrade I make pushes me further, and every part of this setup has a purpose. It’s not perfect, but it’s mine, and it’s always evolving as I grow as a creator.
-        </p>
-      </section>
-
-      <!-- CHAOSRX LOGO -->
-      <section id="logo" class="section">
-        <h2>ChaosRX Logo</h2>
-
-        <div class="image-wrap">
-          <img src="IMG_9658.png" alt="ChaosRX logo" />
-        </div>
-
-        <p>
-          The ChaosRX logo represents everything I want my brand to be — sharp, clean, and instantly recognizable. The circular shape gives it a sense of motion, while the bold lettering makes it feel strong and confident. I wanted a logo that could work anywhere: on thumbnails, banners, merch, overlays, and even in real‑life photos. Something that looks professional but still feels personal.
-        </p>
-
-        <p>
-          Branding is a huge part of being a creator, and this logo is the foundation of mine. It’s the symbol of the world I’m building — a mix of chaos and control, speed and precision, energy and focus. Every time I see it, it reminds me of how far I’ve come and how much more I want to build.
-        </p>
-      </section>
-
-      <!-- ROGUE ENERGY -->
-      <section id="rogue" class="section">
-        <h2>Rogue Energy</h2>
-
-        <div class="image-wrap">
-          <img src="IMG_9638.jpeg" alt="Rogue Energy products" />
-        </div>
-
-        <p>
-          Rogue Energy is a big part of my grind. Whether I’m streaming late, editing for hours, or running long gaming sessions, Rogue keeps me focused and energized without the crash. I like their flavors, their branding, and the way their products match the fast‑paced style of gaming and content creation. Energy, hydration, and chill — all in one brand that fits perfectly with the ChaosRX vibe.
-        </p>
-
-        <p>
-          I use Rogue because it actually helps me stay locked in. When I’m grinding Fortnite, recording clips, or working on new ideas for my channel, having something that keeps me sharp makes a huge difference. It’s part of the routine now, and it’s something I genuinely enjoy using while I create.
-        </p>
-
-        <div class="button-row">
-          <a class="pill-button" href="https://rogueenergy.com/" target="_blank">Powered by Rogue</a>
-        </div>
-      </section>
-
-      <!-- CHAOSRX STORY -->
-      <section id="story" class="section">
-        <h2>ChaosRX Story</h2>
-
-        <p>
-          I had recently moved to North Carolina, and everything in my life felt new. My friends were living with us at the time, so we spent every day hanging out, laughing, and figuring out what to do next. One random day, while we were all just chilling, we said, “You know what? Let’s start a YouTube channel.” We didn’t know anything about editing or branding, and we couldn’t show our faces, so we came up with a name: The Buckhead. It was simple, funny, and perfect for us. When one of our videos hit 15 views, we genuinely thought we were going viral. That tiny moment of excitement was the spark that started everything.
-        </p>
-
-        <p>
-          As time went on, we realized how much we loved playing Fortnite together. It wasn’t just a game — it was our thing. We played for hours, laughed nonstop, and built memories that still matter today. Eventually we said, “If we love Fortnite this much, why not make it our content?” And that’s where the real journey began. Over time, we broke off into separate channels, each of us chasing our own path. When I started gaining subscribers, it felt unreal. But when I hit 500, that was the moment everything changed. That was the moment I knew this wasn’t just fun — this was a dream I wanted to chase for real.
-        </p>
-
-        <p>
-          I worked harder than ever before. I put in hours, days, nights — grinding, editing, uploading, learning, improving. I didn’t stop. I didn’t slow down. I kept pushing because I knew what I wanted. And eventually, I hit 1000 subscribers. That number wasn’t the end. It was the beginning. It proved that everything I believed in was real. It proved that the grind mattered. It proved that people cared about what I was creating.
-        </p>
-
-        <p>
-          I appreciate my entire community — every person who clicked, watched, liked, commented, or supported me. And I appreciate the people who started this journey with me, even if our paths split. ChaosRX isn’t just a YouTube channel. It isn’t just hoping to get paid. It isn’t just content. It’s community. It’s connection. It’s humanity. And I’ll never stop, because I love this, and you guys love this, and that’s what makes ChaosRX real.
-        </p>
-      </section>
-
-    </main>
-
-    <footer>
-      ChaosRX • Built on GitHub Pages
-    </footer>
+    <div class="footer-note">
+      ChaosRX Gaming • Fast, energetic creator journey • Auto‑updated latest video + live milestones
+    </div>
   </div>
 </body>
 </html>
