@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0%, #000000 55%, #020617 100%);
+      background: #000000;
       color: #ffffff;
     }
 
@@ -20,80 +20,128 @@
     }
 
     a {
-      color: #3b82f6;
+      color: #ffffff;
       text-decoration: none;
+      border-bottom: 1px solid #ffffff;
     }
 
     h1, h2 {
       margin: 0 0 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    /* SECTION NEON GLOW */
+    /* SECTION */
     .section {
       position: relative;
       overflow: hidden;
       margin-bottom: 32px;
       padding: 20px;
       border-radius: 18px;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    .section::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
+    .center {
+      text-align: center;
+    }
+
+    /* FLOAT / 3D FEEL */
+    .float-img {
+      display: block;
+      margin: 0 auto;
       border-radius: 18px;
-      pointer-events: none;
-      animation: neonPulse 1.2s infinite alternate;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.12);
+      transform: translateY(0) translateZ(0);
+      transition:
+        transform 0.9s ease,
+        box-shadow 0.9s ease,
+        filter 0.9s ease;
+      will-change: transform;
+      filter: saturate(0) contrast(1.1);
+      animation: slowFloat 6s ease-in-out infinite alternate;
     }
 
-    @keyframes neonPulse {
+    .float-img:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow:
+        0 26px 60px rgba(0, 0, 0, 1),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+      filter: saturate(0) contrast(1.2);
+    }
+
+    @keyframes slowFloat {
       0% {
-        box-shadow: 0 0 6px #3b82f6, 0 0 12px #3b82f6;
+        transform: translateY(4px) scale(1.0);
       }
       100% {
-        box-shadow: 0 0 16px #3b82f6, 0 0 32px #3b82f6;
+        transform: translateY(-4px) scale(1.01);
       }
     }
 
-    /* HEADER */
+    /* HEADER / LOGO */
+    .logo-img {
+      max-width: 160px;
+    }
+
     .logo-title {
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      text-align: center;
     }
 
     .tagline {
       font-size: 0.95rem;
-      color: #9ca3af;
+      color: #d4d4d4;
+      text-align: center;
     }
 
     /* ABOUT */
+    .about-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     .about-text {
       font-size: 0.98rem;
       line-height: 1.6;
+      color: #e5e5e5;
+    }
+
+    .about-face {
+      max-width: 220px;
     }
 
     /* SETUP */
     .setup-list {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 0 0 16px;
       font-size: 0.95rem;
+      color: #e5e5e5;
     }
 
     .setup-list li {
       margin-bottom: 6px;
     }
 
-    /* STORY / ROGUE */
-    .story-text {
-      font-size: 0.96rem;
-      line-height: 1.6;
+    .setup-img {
+      max-width: 100%;
+    }
+
+    /* ROGUE */
+    .rogue-img {
+      max-width: 100%;
+    }
+
+    .rogue-text {
+      font-size: 0.95rem;
+      color: #e5e5e5;
+      text-align: center;
+      margin-top: 10px;
     }
 
     /* CONTACT */
@@ -106,49 +154,13 @@
       display: inline-block;
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(255, 255, 255, 0.06);
       font-size: 0.8rem;
-      color: #e5e7eb;
+      color: #e5e5e5;
       margin-top: 8px;
     }
 
-    /* LATEST VIDEO */
-    .latest-video-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .latest-video-thumb {
-      width: 60%;
-      border-radius: 12px;
-      display: block;
-      margin: 0 auto 15px auto;
-      box-shadow: 0 0 12px #3b82f6;
-    }
-
-    .watch-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #3b82f6;
-      color: white;
-      font-weight: 600;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: 0.2s;
-      box-shadow: 0 0 12px #3b82f6;
-    }
-
-    .watch-btn:hover {
-      background: #60a5fa;
-      box-shadow: 0 0 18px #60a5fa;
-    }
-
-    .center {
-      text-align: center;
-    }
-
-    /* CREATOR GOALS */
+    /* GOALS */
     .goals-title {
       font-size: 1.4rem;
       font-weight: 700;
@@ -167,37 +179,50 @@
 
     .goal-meta {
       font-size: 0.85rem;
-      color: #9ca3af;
+      color: #a3a3a3;
       margin-bottom: 6px;
     }
 
     .progress-bar {
       width: 100%;
       height: 18px;
-      background: #020617;
+      background: #050505;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 0 8px #3b82f6;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
     }
 
     .progress-fill {
       height: 100%;
-      background: #3b82f6;
+      background: linear-gradient(90deg, #ffffff, #bfbfbf);
       width: 0%;
       animation: pulseFill 1.5s infinite alternate;
     }
 
     @keyframes pulseFill {
       0% { filter: brightness(1); }
-      100% { filter: brightness(1.6); }
+      100% { filter: brightness(1.4); }
     }
 
-    /* FOOTER NOTE */
+    /* FOOTER */
     .footer-note {
       font-size: 0.8rem;
-      color: #6b7280;
+      color: #737373;
       text-align: center;
       margin-top: 20px;
+    }
+
+    @media (min-width: 700px) {
+      .about-layout {
+        flex-direction: row;
+        align-items: center;
+      }
+      .about-text {
+        flex: 2;
+      }
+      .about-face {
+        flex: 1;
+      }
     }
   </style>
 </head>
@@ -205,19 +230,33 @@
   <div class="wrapper">
 
     <!-- HEADER / LOGO -->
-    <div class="section">
+    <div class="section center">
+      <img
+        class="float-img logo-img"
+        src="https://raw.githubusercontent.com/ChaosRXonYT/ChaosRX/dc21c13d3fbba00c4c32ef7ada9494011ccd7a97/IMG_9658.png"
+        alt="ChaosRX Logo"
+      >
       <div class="logo-title">CHAOSRX GAMING</div>
-      <div class="tagline">Fast. Energetic. Fortnite creator grinding toward monetization, 5K subs, and 1M views.</div>
+      <div class="tagline">
+        Fast, clean Fortnite creator building a real brand from the ground up.
+      </div>
     </div>
 
-    <!-- ABOUT ME -->
+    <!-- ABOUT ME (FACE) -->
     <div class="section">
       <h2>About Me</h2>
-      <p class="about-text">
-        I’m ChaosRX, a Fortnite creator focused on fast‑paced, high‑energy gameplay and clean content.
-        My goal is to build a real creator brand, grow a loyal community, and turn the grind into something
-        that lasts—starting with monetization, then 5,000 subscribers, and finally 1,000,000 total views.
-      </p>
+      <div class="about-layout">
+        <p class="about-text">
+          I’m ChaosRX, a Fortnite creator focused on fast‑paced, high‑energy gameplay and clean content.
+          I’m grinding toward real creator milestones — monetization, 5,000 subscribers, and 1,000,000 total views —
+          by staying consistent, improving every upload, and building a recognizable brand.
+        </p>
+        <img
+          class="float-img about-face"
+          src="https://raw.githubusercontent.com/ChaosRXonYT/ChaosRX/dc21c13d3fbba00c4c32ef7ada9494011ccd7a97/IMG_9630.png"
+          alt="ChaosRX Face"
+        >
+      </div>
     </div>
 
     <!-- SETUP -->
@@ -227,85 +266,41 @@
         <li>• Xbox + Fortnite main</li>
         <li>• Switching from controller to keyboard & mouse</li>
         <li>• Streaming / recording ready</li>
-        <li>• Clean, fast, creator‑focused layout</li>
+        <li>• Clean, creator‑focused layout built for content.</li>
       </ul>
+      <img
+        class="float-img setup-img"
+        src="https://raw.githubusercontent.com/ChaosRXonYT/ChaosRX/dc21c13d3fbba00c4c32ef7ada9494011ccd7a97/IMG_9647.jpeg"
+        alt="ChaosRX Setup"
+      >
     </div>
 
-    <!-- STORY / ROGUE -->
-    <div class="section">
-      <h2>My Story</h2>
-      <p class="story-text">
-        ChaosRX is built on movement, momentum, and staying in the fight. I’m not just posting clips—
-        I’m building a creator identity that feels fast, neon, and alive. Every upload, every edit, every
-        thumbnail is part of the journey from small creator to fully monetized, recognized Fortnite brand.
+    <!-- ROGUE ENERGY -->
+    <div class="section center">
+      <h2>Rogue Energy</h2>
+      <img
+        class="float-img rogue-img"
+        src="https://raw.githubusercontent.com/ChaosRXonYT/ChaosRX/dc21c13d3fbba00c4c32ef7ada9494011ccd7a97/IMG_9638.jpeg"
+        alt="Rogue Energy"
+      >
+      <p class="rogue-text">
+        Performance‑focused energy and hydration to keep the grind going — perfect for long Fortnite sessions
+        and creator work. Rogue fits the ChaosRX brand: sharp, focused, and built for momentum.
       </p>
     </div>
 
-    <!-- CONTACT (EMAIL ONLY) -->
+    <!-- CREATOR GOALS -->
     <div class="section">
-      <h2>Contact Me</h2>
-      <p class="contact-email">
-        Business / collabs: <a href="mailto:chaosrxgaming@proton.me">chaosrxgaming@proton.me</a>
-      </p>
-      <div class="pill">Email only • No DMs • Serious inquiries</div>
-    </div>
+      <h2 class="goals-title">Creator Goals</h2>
 
-    <!-- LATEST VIDEO (AUTO-UPDATING) -->
-    <div class="section">
-      <div class="center">
-        <div class="latest-video-title">Latest Upload</div>
-      </div>
-
-      <script>
-        async function loadLatestVideo() {
-          try {
-            const rssUrl = "https://www.youtube.com/feeds/videos.xml?channel_id=UCf0t8gkWcX0t5uQmF8zv1xw";
-            const response = await fetch(rssUrl);
-            const text = await response.text();
-
-            const parser = new DOMParser();
-            const xml = parser.parseFromString(text, "text/xml");
-
-            const entry = xml.querySelector("entry");
-            if (!entry) return;
-
-            const title = entry.querySelector("title").textContent;
-            const link = entry.querySelector("link").getAttribute("href");
-            const videoId = link.split("v=")[1];
-            const thumbnail = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-
-            document.getElementById("latest-thumb").src = thumbnail;
-            document.getElementById("latest-title").innerText = title;
-            document.getElementById("latest-link").href = link;
-          } catch (e) {
-            console.error("Error loading latest video", e);
-          }
-        }
-
-        loadLatestVideo();
-      </script>
-
-      <img id="latest-thumb" class="latest-video-thumb" src="" alt="Latest Video Thumbnail">
-      <div id="latest-title" class="center latest-video-title"></div>
-      <div class="center">
-        <a id="latest-link" class="watch-btn" target="_blank">Watch Now</a>
-      </div>
-    </div>
-
-    <!-- CREATOR GOALS (BOTTOM DASHBOARD) -->
-    <div class="section">
-      <div class="goals-title">ChaosRX Milestones</div>
-
-      <!-- Monetization -->
       <div class="goal">
-        <div class="goal-label">Monetization</div>
-        <div class="goal-meta">Goal: Unlock YouTube monetization • Status: Complete</div>
+        <div class="goal-label">Unlock YouTube Monetization</div>
+        <div class="goal-meta">Status: In progress • Watch time + consistency grind</div>
         <div class="progress-bar">
-          <div class="progress-fill" style="width: 100%;"></div>
+          <div class="progress-fill" style="width: 40%;"></div>
         </div>
       </div>
 
-      <!-- 5,000 Subscribers -->
       <div class="goal">
         <div class="goal-label">Reach 5,000 Subscribers</div>
         <div class="goal-meta">Progress: ~1,000 / 5,000 • 20%</div>
@@ -314,7 +309,6 @@
         </div>
       </div>
 
-      <!-- 1,000,000 Views -->
       <div class="goal">
         <div class="goal-label">Hit 1,000,000 Total Views</div>
         <div class="goal-meta">Progress: 300,000 / 1,000,000 • 30%</div>
@@ -324,9 +318,18 @@
       </div>
     </div>
 
-    <div class="footer-note">
-      ChaosRX Gaming • Fast, energetic creator journey • Auto‑updated latest video + live milestones
+    <!-- CONTACT -->
+    <div class="section">
+      <h2>Contact Me</h2>
+      <p class="contact-email">Business / collabs: <br> <a href="mailto:Emazur2007@gmail.com">Emazur2007@gmail.com</a></p>
+      <div class="pill">Email only • No DMs • Serious inquiries</div>
     </div>
+
+    <!-- FOOTER NOTE -->
+    <div class="footer-note">
+      ChaosRX Gaming • Black & white creator hub • Floating images for that smooth 3D feel.
+    </div>
+
   </div>
 </body>
 </html>
